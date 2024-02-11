@@ -3,6 +3,7 @@
 
     <!-- main -->
     <string name="tip_calc_btn">Tip Calculator</string>
+    <string name="map_btn">Google Map</string>
 
     <!-- tip calculation -->
     <string name="cost_of_service">Cost of Service</string>

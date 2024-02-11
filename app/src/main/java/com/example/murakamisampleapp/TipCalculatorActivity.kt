@@ -24,25 +24,12 @@ class TipCalculatorActivity : AppCompatActivity() {
         // 戻るボタンの表示
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // チップ計算ロジック
+        // チップ計算
         findViewById<Button>(R.id.calculate_button).setOnClickListener {
-            var costOfService = findViewById<EditText>(R.id.cost_of_service)
-            val tipOptions = findViewById<RadioGroup>(R.id.tip_options)
-            val result = findViewById<TextView>(R.id.tip_result_value)
-
-            // 選択されたラジオボタンを取得
-            var percent = 0.0
-
-            when (tipOptions.checkedRadioButtonId) {
-                R.id.option_twenty_percent -> percent = 0.2
-                R.id.option_eighteen_percent -> percent = 0.18
-                R.id.option_fifteen_percent -> percent = 0.15
-                else -> Log.w("tip calculation","not exist percent")
-            }
+            val tip = calcTip()
 
             // 計算したチップの結果を画面に反映
-            val tip = (costOfService.text.toString().toDouble() * percent).roundToInt()
-            result.text = "¥$tip"
+            findViewById<TextView>(R.id.tip_result_value).text = "¥$tip"
         }
     }
 
@@ -52,5 +39,27 @@ class TipCalculatorActivity : AppCompatActivity() {
             finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    // チップ計算ロジック
+    private fun calcTip(): Int {
+        // 画面要素の取得
+        var costOfService = findViewById<EditText>(R.id.cost_of_service)
+        val tipOptions = findViewById<RadioGroup>(R.id.tip_options)
+
+        // 選択されたラジオボタンを取得
+        var percent = 0.0
+
+        when (tipOptions.checkedRadioButtonId) {
+            R.id.option_twenty_percent -> percent = 0.2
+            R.id.option_eighteen_percent -> percent = 0.18
+            R.id.option_fifteen_percent -> percent = 0.15
+            else -> Log.w("tip calculation","not exist percent")
+        }
+
+        // チップを計算
+        val tip = (costOfService.text.toString().toDouble() * percent).roundToInt()
+
+        return tip
     }
 }

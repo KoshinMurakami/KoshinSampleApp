@@ -18,5 +18,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, TipCalculatorActivity::class.java)
             startActivity(intent)
         }
+
+        // マップ画面に遷移
+        findViewById<Button>(R.id.map_btn).setOnClickListener {
+            val intent = Intent(this@MainActivity, MapActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
