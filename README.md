@@ -13,7 +13,7 @@ Kotlin 1.9.22（ https://kotlinlang.org/docs/whatsnew1920.html ）
   - 上記リンクの内容に追加で、計算ロジックと画面遷移を実装
 - Google Mapの表示
   - https://developers.google.com/codelabs/maps-platform/maps-platform-101-android?hl=ja#0
-  - 上記リンクの「4.Googleマップを追加する」まで実装
+  - 上記リンクの「6.マーカーを追加する」まで実装
 
 ## 処理概要
 
@@ -35,6 +35,8 @@ Kotlin 1.9.22（ https://kotlinlang.org/docs/whatsnew1920.html ）
 
 ### MapActivity.kt
 - 地図の表示
+- 地図上にマーカーを追加する
+  - jsonから読み取った位置情報をもとに追加している
 - （以下は追加で実装したいができていない）
   - メモ機能の実装
 
